@@ -239,6 +239,27 @@ def victory():
         score_player2 +=1
         reset()
 
+def score():
+    print(joueur1,score_player1),print(joueur2,score_player2)
+
+def createFile():
+    #créer un fichier 
+    file_object = open("score.txt", "w")
+    str_score = score()
+    #mettre la variable score dedans    
+    file_object.write(str_score)
+    file_object.close()
+def createFile():
+    #créer un fichier 
+    SP1=str(score_player1)
+    SP2=str(score_player2)
+    file_object = open("score.txt", "a")
+    #mettre la variable score dedans 
+    str_score=joueur1+":"+SP1+joueur2+":"+SP2
+    print(str_score)
+    file_object.write(str_score)
+    file_object.close()
+
 #pour reset le jeu
 def reset():
     reset=input("Voulez-vous recommencer le morpion ? Si vous quittez, les scores seront enregistrer dans un fichier. Taper oui ou non =>  ")
@@ -248,10 +269,9 @@ def reset():
     line1 = ["-","-","-"]
     line2 = ["-","-","-"]
     line3 = ["-","-","-"]
-
     if reset == "non":
         print("Ce sera tout pour aujourd'hui. Les score seront inscrit dans le fichier score.txt")
-        #inscrire les score dans le fichier    
+        createFile()   
     elif reset == "oui":
         game()
     else:
@@ -278,3 +298,4 @@ def game():
     reset()
 
 game()
+
