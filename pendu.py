@@ -30,9 +30,9 @@ list_dictionnaire = dictionnaire.split()
 #choisir un mot aléatoire de la liste
 import random
 rand_word = random.choice(list_dictionnaire)
-print(rand_word)
+#print(rand_word)
 list_r_word=list(rand_word)
-print(list_r_word)
+#print(list_r_word)
 #afficher le mot vide
 nb_letter = len(rand_word)
 base_carac = "_"
@@ -41,41 +41,54 @@ print(base_word)
 list_base_word=list(base_word)
 print(list_base_word)
 
+#faire une liste des lettres utilisées
+used_letter=[]
+
 #choisir une lettre
 
 def new_letter():
     global count_nb_vie
+    global letter_choose
     letter_choose = input("Choisir une lettre (en minuscule) <  ")
     print("Vous avez choisis la lettre ",letter_choose)
+    list_used_letter()
     i=0    
-    while i < (nb_letter - 1):
+    if letter_choose not in list_r_word:
+            count_nb_vie = count_nb_vie - 1 
+    while i < (nb_letter):
         if list_r_word[i]==letter_choose:
             list_base_word[i]=letter_choose
-            count_nb_vie = count_nb_vie + 1
         elif list_base_word[i] !="_":
-            list_base_word[i]=list_base_word[i]
+            list_base_word[i]=list_base_word[i]    
         else:
-            list_base_word[i]="_"    
+           list_base_word[i]="_"
+              
         i+=1
-    count_nb_vie = count_nb_vie - 1   
-    used_letter=[]
-    used_letter.append(letter_choose)
-    print("Lettres déjà utilisées: ",used_letter)
-
+       
     print(list_base_word)
     print("Il vous reste "+str(count_nb_vie)+" vies!")
-    if count_nb_vie <= 0:
-            game_run = False
-            print("Vous avez perdu ! Vous êtes nul !")
-            return game_run
-
+    game_loose()
+    game_win()
     
-
+def list_used_letter():
+    used_letter.append(letter_choose)
+    print("Lettres déjà utilisées: ",used_letter)
 
 def all_game():
     while game_run == True:
        new_letter() 
-    
+
+def game_loose():
+    global game_run
+    if count_nb_vie <= 0:
+            game_run = False
+            print("Vous avez perdu ! Vous êtes nul ! Le mot était ",list_r_word)
+
+def game_win():
+    base_carac = "_"
+    if base_carac not in list_base_word:
+        print("You win ! ")
+                   
 
 all_game()
 
