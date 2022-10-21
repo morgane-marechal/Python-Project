@@ -54,9 +54,9 @@ def new_letter():
     i=0    
     if letter_choose not in list_r_word:
             count_nb_vie = count_nb_vie - 1 
-    while i < (nb_letter):
-        if list_r_word[i]==letter_choose:
-            list_base_word[i]=letter_choose
+    while i < (nb_letter):    # <= la boucle while sert à trouver si la lettre choisie est présente,  
+        if list_r_word[i]==letter_choose: # <= à quelle emplacement dans le mot
+            list_base_word[i]=letter_choose # <= à remplacer l'underscore du mot vide au même emplacement
         elif list_base_word[i] !="_":
             list_base_word[i]=list_base_word[i]    
         else:
