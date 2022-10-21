@@ -44,8 +44,7 @@ print(list_base_word)
 #faire une liste des lettres utilisées
 used_letter=[]
 
-#choisir une lettre
-
+#choisir une lettre et vérifier qu'elle est dans le mot
 def new_letter():
     global count_nb_vie
     global letter_choose
@@ -62,9 +61,7 @@ def new_letter():
             list_base_word[i]=list_base_word[i]    
         else:
            list_base_word[i]="_"
-              
         i+=1
-       
     print(list_base_word)
     print("Il vous reste "+str(count_nb_vie)+" vies!")
     game_loose()
@@ -82,46 +79,12 @@ def game_loose():
     global game_run
     if count_nb_vie <= 0:
             game_run = False
-            print("Vous avez perdu ! Vous êtes nul ! Le mot était ",list_r_word)
+            print("Vous avez perdu ! Vous êtes nul ! Le mot était ",rand_word)
 
 def game_win():
     base_carac = "_"
     if base_carac not in list_base_word:
-        print("You win ! ")
-                   
+        print("Et c'est un win ! ")
 
 all_game()
-
-"""
-def find_letter():       
-    for letter in rand_word: 
-        if letter == letter_choose:
-            letter_place = rand_word.find(letter_choose)
-            letter_place=int(letter_place)
-            print("Place de la lettre dans le mot", letter_place)
-            s = list(base_word)
-            print(s)
-            s[letter_place] = letter_choose
-            print(s)
-
-        else:
-            #count_nb_vie = count_nb_vie - 1
-            print(count_nb_vie)
-
-def find_letter_to_replace():         
-    for pos,char in enumerate(rand_word):
-        if(char == letter_choose):
-            places_letter.append(pos)
-            display_places_letter = print(places_letter)
-
-places_letter = []
-
-print("Retour de places_letter: ", display_places_letter)
-
-def replace_underscore():    
-    space=" "
-    for i in rand_word:
-        if i in places_letter:
-"""
-
 
