@@ -23,6 +23,16 @@ file_reading = open("dico_france.txt", "r")
 dictionnaire = file_reading.read()    #dictionnaire est la variable qui contiendra le contenu (str) du fichier
 #print(dictionnaire)
 file_reading.close()
+
+
+chars = "éèêë"
+for c in chars:
+    dictionnaire = dictionnaire.replace(c, "e")
+dictionnaire = dictionnaire.replace(" de", "")
+ah = "àâä"
+for c in ah:
+    dicitonnaire = dictionnaire.replace(c, "a")
+
 #convertir le fichier en list
 list_dictionnaire = dictionnaire.split()
 #print(list_dictionnaire)
@@ -85,6 +95,6 @@ def game_win():
     base_carac = "_"
     if base_carac not in list_base_word:
         print("Et c'est un win ! ")
-
+        quit()
 all_game()
 
