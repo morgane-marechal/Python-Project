@@ -49,9 +49,7 @@ def game_is_open_for_player1():
     else:
         print("Cet emplacement est occupé !")
         game_is_open_for_player1_bis()
-    print(line1)
-    print(line2)
-    print(line3)
+    
 
 #définir le choix de la case (doublon pour continuer le jeu si on sélectionne une case déjà occupée)
 def game_is_open_for_player1_bis():
@@ -77,9 +75,7 @@ def game_is_open_for_player1_bis():
     else:
         print("Cet emplacement est occupé !")
         game_is_open_for_player1()
-    print(line1)
-    print(line2)
-    print(line3)
+    
 
 
 def game_is_open_for_player2():
@@ -105,9 +101,7 @@ def game_is_open_for_player2():
     else:
         print("Cet emplacement est occupé !")
         game_is_open_for_player2_bis()
-    print(line1)
-    print(line2)
-    print(line3)
+   
 
 def game_is_open_for_player2_bis():
     tour_j2=input(" Tour de joueur2. Rentrez le nunermo de la ligne et de la colonne ou vous voulez jouer comme ceci (exemple première ligne et deuxième colonne : 12)")
@@ -132,9 +126,7 @@ def game_is_open_for_player2_bis():
     else:
         print("Cet emplacement est occupé !")
         game_is_open_for_player2()
-    print(line1)
-    print(line2)
-    print(line3)
+   
 
 #définir condition de victoire
 def victory():
@@ -262,7 +254,7 @@ def createFile():
 
 #pour reset le jeu
 def reset():
-    reset=input("Voulez-vous recommencer le morpion ? Si vous quittez, les scores seront enregistrer dans un fichier. Taper oui ou non =>  ")
+    reset=input("Voulez-vous recommencer le morpion ? Si vous quittez, les scores seront enregistrer dans un fichier. Taper oui pour recommencer ou non pour quitter =>  ")
     global line1
     global line2
     global line3
@@ -280,19 +272,50 @@ def reset():
 #déroulé d'une partie
 def game():
     game_is_open_for_player1()
+    print(line1)
+    print(line2)
+    print(line3)
+
     game_is_open_for_player2()
+    print(line1)
+    print(line2)
+    print(line3)
+
     game_is_open_for_player1()
+    print(line1)
+    print(line2)
+    print(line3)
+
     game_is_open_for_player2()
+    print(line1)
+    print(line2)
+    print(line3)
+
     game_is_open_for_player1()
+    print(line1)
+    print(line2)
+    print(line3)
     #vérifier conditions de victoire
     victory()
     game_is_open_for_player2()
+    print(line1)
+    print(line2)
+    print(line3)
     victory()
     game_is_open_for_player1()
+    print(line1)
+    print(line2)
+    print(line3)
     victory()
     game_is_open_for_player2()
+    print(line1)
+    print(line2)
+    print(line3)
     victory()
     game_is_open_for_player1()
+    print(line1)
+    print(line2)
+    print(line3)
     victory()
     print("Partie nul")
     reset()
